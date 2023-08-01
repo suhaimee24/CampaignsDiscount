@@ -12,4 +12,11 @@ make stop
 # build docker
 make build
 
+# run test
+make test-rspec
+
 ```
+
+## Postman collection
+
+filename postman_collection.json
