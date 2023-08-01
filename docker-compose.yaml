@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  campaigns_discount:
+    container_name: campaigns_discount
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENV: ${RAILS_ENV}
+    env_file: ./environments/${RAILS_ENV}.env
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p ${RAILS_PORT} -b '0.0.0.0'"
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/campaigns_discount
